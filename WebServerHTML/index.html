@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP Web Server</title>
+    <style>
+
+      html{
+        font-family: Helvetica;
+        display:inline-block;
+        margin: 0px auto; 
+        text-align: center;
+      }
+      h1{
+        color: #0F3376; 
+        padding: 2vh;}
+      p{
+        font-size: 1.5rem;
+      }
+      button {
+        --button_radius: 0.75em;
+        --button_color: #e8e8e8;
+        --button_outline_color: #3c5feb;
+        font-size: 17px;
+        font-weight: bold;
+        border: none;
+        border-radius: var(--button_radius);
+        background: var(--button_outline_color);
+        cursor: pointer;
+      }
+      .button_top {
+        display: block;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+        border: 2px solid var(--button_outline_color);
+        border-radius: var(--button_radius);
+        padding: 0.75em 1.5em;
+        background: var(--button_color);
+        color: var(--button_outline_color);
+        -webkit-transform: translateY(-0.2em);
+            -ms-transform: translateY(-0.2em);
+                transform: translateY(-0.2em);
+        -webkit-transition: -webkit-transform 0.1s ease;
+        transition: -webkit-transform 0.1s ease;
+        transition: transform 0.1s ease;
+        transition: transform 0.1s ease, -webkit-transform 0.1s ease;
+      }
+      .button_top#btn-on{
+        /* background-color: #5dcb2a; */
+      }
+      .button_top#btn-off{
+        /* background-color: #e45640; */
+      }
+      button:hover .button-top {
+        /* Pull the button upwards when hovered */
+        -webkit-transform: translateY(-0.33em);
+          -ms-transform: translateY(-0.33em);
+              transform: translateY(-0.33em);
+      }
+      button:active .button_top {
+        /* Push the button downwards when pressed */
+        -webkit-transform: translateY(0);
+          -ms-transform: translateY(0);
+              transform: translateY(0);
+      }
+    </style>
+
+  </head>
+
+  <body> 
+        
+      </head>
+      <body> 
+        <h1>ESP Web Server</h1> 
+        <p>GPIO state: <strong id="std">gpio_state</strong></p>
+          <form method="get">
+            <p>
+              <button type="submit" name="btn" value="on">
+                <span class="button_top" id="btn-on">On</span>
+              </button>
+            </p>
+            <p>
+              <button type="submit" name="btn" value="off">
+                <span class="button_top" id="btn-off">Off</span>
+              </button>
+            </p>
+          </form>
+  
+  </body>
+  <script>
+    
+    const std = document.querySelector("#std");
+    // std.innerText = window.location.search.replace("?btn=","").toUpperCase()
+    const btn_on = document.querySelector("#btn-on");
+    const btn_off = document.querySelector("#btn-off");
+    
+
+    if(std.innerText === "ON"){
+      btn_on.style.backgroundColor = "#5dcb2a"
+    }else if(std.innerText === "OFF"){
+      btn_off.style.backgroundColor = "#e45640"
+    }
+
+    
+
+  </script>
+</html>
